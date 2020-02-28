@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/haziel/CLionProjects/Grafo/grafo/Arista.cpp
+Arista.h
+/home/haziel/CLionProjects/Grafo/grafo/Arista.h
+
+/home/haziel/CLionProjects/Grafo/grafo/Arista.h
+Vertice.h
+/home/haziel/CLionProjects/Grafo/grafo/Vertice.h
+
+/home/haziel/CLionProjects/Grafo/grafo/Grafo.cpp
+Grafo.h
+/home/haziel/CLionProjects/Grafo/grafo/Grafo.h
+
+/home/haziel/CLionProjects/Grafo/grafo/Grafo.h
+Vertice.h
+/home/haziel/CLionProjects/Grafo/grafo/Vertice.h
+
+/home/haziel/CLionProjects/Grafo/grafo/Vertice.cpp
+Vertice.h
+/home/haziel/CLionProjects/Grafo/grafo/Vertice.h
+
+/home/haziel/CLionProjects/Grafo/grafo/Vertice.h
+Arista.h
+/home/haziel/CLionProjects/Grafo/grafo/Arista.h
+iostream
+-
+
+/home/haziel/CLionProjects/Grafo/grafo/main.cpp
+iostream
+-
+Grafo.h
+/home/haziel/CLionProjects/Grafo/grafo/Grafo.h
+

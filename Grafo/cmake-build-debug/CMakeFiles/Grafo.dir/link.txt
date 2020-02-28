@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/Grafo.dir/grafo/main.cpp.o CMakeFiles/Grafo.dir/grafo/Vertice.cpp.o CMakeFiles/Grafo.dir/grafo/Arista.cpp.o CMakeFiles/Grafo.dir/grafo/Grafo.cpp.o  -o Grafo 
