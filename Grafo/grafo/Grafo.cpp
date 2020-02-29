@@ -3,7 +3,8 @@
 //
 
 #include "Grafo.h"
-
+#include <stack>
+#include <list>
 
 Grafo::Grafo() {
     this->size = 0;
@@ -11,7 +12,8 @@ Grafo::Grafo() {
 }
 
 Vertice* Grafo::getVertice(string ciudad) {
-    Vertice *aux = this->first;
+    Vertice *aux;
+    aux = this->first;
     while(aux != NULL){
         if(aux->getCiudad() == ciudad){
             return aux;
@@ -32,7 +34,8 @@ void Grafo::insertVertice(string ciudad) {
         this->size++;
     }
     else{
-        Vertice *aux = this->first;
+        Vertice *aux;
+        aux = this->first;
         while(aux->getSiguiente() != NULL){
             aux = aux->getSiguiente();
         }
@@ -42,24 +45,28 @@ void Grafo::insertVertice(string ciudad) {
 }
 
 void Grafo::insertArista(Vertice *origen, Vertice *destino, int peso) {
-    Arista *nueva = new Arista();
-    nueva->setPeso(peso);
-    nueva->setSiguiente(NULL);
-    nueva->setVertAdy(NULL);
-
-    Arista *aux;
-    aux = origen->getAristaAdy();
-
-    if(aux == NULL){
-        origen->setAristaAdy(nueva);
-        nueva->setVertAdy(destino);
+    if(this->size == 0){
+        cout<<"Se debe insertar un vertice primero"<<endl;
     }
-    else{
-        while(aux->getSiguiente() != NULL){
-            aux = aux->getSiguiente();
+    else {
+        Arista *nueva = new Arista();
+        nueva->setPeso(peso);
+        nueva->setSiguiente(NULL);
+        nueva->setVertAdy(NULL);
+
+        Arista *aux;
+        aux = origen->getAristaAdy();
+
+        if (aux == NULL) {
+            origen->setAristaAdy(nueva);
+            nueva->setVertAdy(destino);
+        } else {
+            while (aux->getSiguiente() != NULL) {
+                aux = aux->getSiguiente();
+            }
+            aux->setSiguiente(nueva);
+            nueva->setVertAdy(destino);
         }
-        aux->setSiguiente(nueva);
-        nueva->setVertAdy(destino);
     }
 }
 
@@ -84,4 +91,98 @@ void Grafo::listaAdyacencia() {
 
 int Grafo::getSize() {
     return this->size;
+}
+
+
+bool comparacion(pair<Vertice *, int> a, pair<Vertice *, int> b) {
+    return a.second < b.second;
+}
+
+
+void Grafo::rutaMinima(Vertice *origen, Vertice *destino) {
+
+    int band, band2 = 0;
+    int costoActual = 0;
+    Vertice *verticeActual, *destinoActual;
+    Arista *aux;
+    typedef  pair<Vertice *, int> verticeCosto;
+    typedef pair<Vertice *, Vertice *> verticeVertice;
+    list<verticeCosto> listaCosto; //lista para guardar el vertice y el peso
+    list<verticeCosto> listaOrdenada; //Lista ordenada de vertice y peso;
+    stack<verticeVertice> pila; //pila para guardar pares origen-destino;
+    list<verticeCosto>::iterator i, j;
+
+    listaCosto.push_back(verticeCosto(origen,0));//por ser origen el costo es cero
+    listaOrdenada.push_back(verticeCosto(origen, 0));//por ser origen el costo es cero
+
+    while(!listaOrdenada.empty()){
+        verticeActual = listaOrdenada.front().first;
+        costoActual = listaOrdenada.front().second;
+        listaOrdenada.pop_front();
+
+        if(verticeActual == destino){
+
+            band2 = 1;
+            destinoActual = destino;
+
+            while(!pila.empty()){
+                cout<<destinoActual->getCiudad()<<"<-";
+
+                while(!pila.empty() && pila.top().second != destinoActual){
+                    pila.pop();
+                }
+
+                if(!pila.empty()){
+
+                    destinoActual = pila.top().first;
+                }
+
+            }
+
+            break;
+        }
+
+        aux = verticeActual->getAristaAdy();
+        while(aux != NULL){
+            band = 0;
+            costoActual = costoActual + aux->getPeso();
+
+            for(i=listaCosto.begin(); i != listaCosto.end(); i++){
+
+                if(aux->getVerticeAdy() == i->first){
+
+                    band = 1;
+                    if(costoActual < i->second){
+                        (*i).second = costoActual;
+
+                        for(j=listaOrdenada.begin(); j!=listaOrdenada.end(); j++){
+
+                            if(j->first == aux->getVerticeAdy()){
+                                (*j).second = costoActual;
+                            }
+                        }
+
+                        listaOrdenada.sort(comparacion);
+                        pila.push(verticeVertice(verticeActual, aux->getVerticeAdy()));
+                        costoActual = costoActual - aux->getPeso();
+                    }
+
+                }
+            }
+
+            if(band == 0){
+                listaCosto.push_back(verticeCosto(aux->getVerticeAdy(),costoActual));
+                listaOrdenada.push_back(verticeCosto(aux->getVerticeAdy(),costoActual));
+                listaOrdenada.sort(comparacion);
+                pila.push(verticeVertice(verticeActual, aux->getVerticeAdy()));
+                costoActual = costoActual - aux->getPeso();
+            }
+
+
+            aux = aux->getSiguiente();
+        }
+    }
+    if(band2 == 0){
+        cout<<"NO SE ENCONTRO RUTA"<<endl;
+    }
 }
