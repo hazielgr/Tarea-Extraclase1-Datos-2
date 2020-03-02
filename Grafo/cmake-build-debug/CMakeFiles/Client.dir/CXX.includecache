@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/haziel/CLionProjects/Grafo/SocketServer/Client.cpp
+cstdio
+-
+cstring
+-
+sys/types.h
+-
+sys/socket.h
+-
+arpa/inet.h
+-
+netinet/in.h
+-
+netinet/ip.h
+-
+cstdlib
+-
+Client.h
+/home/haziel/CLionProjects/Grafo/SocketServer/Client.h
+iostream
+-
+unistd.h
+-
+
+/home/haziel/CLionProjects/Grafo/SocketServer/Client.h
+

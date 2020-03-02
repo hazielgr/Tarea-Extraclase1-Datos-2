@@ -5,7 +5,7 @@
 #ifndef GRAFO_GRAFO_H
 #define GRAFO_GRAFO_H
 
-
+#include <list>
 #include "Vertice.h"
 
 
@@ -19,6 +19,7 @@ public:
     void insertVertice(string ciudad);
     void listaAdyacencia();
     Vertice* getVertice(string ciudad);
+    list<string> rutaMinima(Vertice *origen, Vertice *destino);
 private:
     Vertice *first;
     int size;

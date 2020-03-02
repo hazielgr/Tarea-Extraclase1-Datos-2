@@ -6,6 +6,40 @@
 
 #IncludeRegexTransform: 
 
+/home/haziel/CLionProjects/Grafo/SocketServer/Server.cpp
+cstdio
+-
+cstring
+-
+sys/types.h
+-
+sys/socket.h
+-
+arpa/inet.h
+-
+netinet/in.h
+-
+netinet/ip.h
+-
+cstdlib
+-
+unistd.h
+-
+Server.h
+/home/haziel/CLionProjects/Grafo/SocketServer/Server.h
+../grafo/Grafo.h
+/home/haziel/CLionProjects/Grafo/grafo/Grafo.h
+iostream
+-
+sstream
+-
+
+/home/haziel/CLionProjects/Grafo/SocketServer/Server.h
+iostream
+-
+list
+/home/haziel/CLionProjects/Grafo/SocketServer/list
+
 /home/haziel/CLionProjects/Grafo/grafo/Arista.h
 Vertice.h
 /home/haziel/CLionProjects/Grafo/grafo/Vertice.h
@@ -21,14 +55,4 @@ Arista.h
 /home/haziel/CLionProjects/Grafo/grafo/Arista.h
 iostream
 -
-
-/home/haziel/CLionProjects/Grafo/grafo/main.cpp
-iostream
--
-list
--
-sstream
--
-Grafo.h
-/home/haziel/CLionProjects/Grafo/grafo/Grafo.h
 

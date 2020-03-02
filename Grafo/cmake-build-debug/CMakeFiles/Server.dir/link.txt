@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/Server.dir/SocketServer/Server.cpp.o CMakeFiles/Server.dir/grafo/Vertice.cpp.o CMakeFiles/Server.dir/grafo/Arista.cpp.o CMakeFiles/Server.dir/grafo/Grafo.cpp.o  -o Server 

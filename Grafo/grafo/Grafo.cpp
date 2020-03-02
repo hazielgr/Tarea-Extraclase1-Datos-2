@@ -99,9 +99,10 @@ bool comparacion(pair<Vertice *, int> a, pair<Vertice *, int> b) {
 }
 
 
-void Grafo::rutaMinima(Vertice *origen, Vertice *destino) {
-
+list<string> Grafo::rutaMinima(Vertice *origen, Vertice *destino) {
+    list<string> listaRutas;
     int band, band2 = 0;
+    int indice = 0;
     int costoActual = 0;
     Vertice *verticeActual, *destinoActual;
     Arista *aux;
@@ -126,7 +127,8 @@ void Grafo::rutaMinima(Vertice *origen, Vertice *destino) {
             destinoActual = destino;
 
             while(!pila.empty()){
-                cout<<destinoActual->getCiudad()<<"<-";
+
+                listaRutas.push_front(destinoActual->getCiudad() + "->");
 
                 while(!pila.empty() && pila.top().second != destinoActual){
                     pila.pop();
@@ -185,4 +187,6 @@ void Grafo::rutaMinima(Vertice *origen, Vertice *destino) {
     if(band2 == 0){
         cout<<"NO SE ENCONTRO RUTA"<<endl;
     }
+
+    return listaRutas;
 }

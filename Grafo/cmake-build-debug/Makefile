@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named Client
+
+# Build rule for target.
+Client: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Client
+.PHONY : Client
+
+# fast build rule for target.
+Client/fast:
+	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/build
+.PHONY : Client/fast
+
+#=============================================================================
 # Target rules for targets named Grafo
 
 # Build rule for target.
@@ -123,6 +136,73 @@ Grafo/fast:
 	$(MAKE) -f CMakeFiles/Grafo.dir/build.make CMakeFiles/Grafo.dir/build
 .PHONY : Grafo/fast
 
+#=============================================================================
+# Target rules for targets named Server
+
+# Build rule for target.
+Server: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Server
+.PHONY : Server
+
+# fast build rule for target.
+Server/fast:
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/build
+.PHONY : Server/fast
+
+SocketServer/Client.o: SocketServer/Client.cpp.o
+
+.PHONY : SocketServer/Client.o
+
+# target to build an object file
+SocketServer/Client.cpp.o:
+	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/SocketServer/Client.cpp.o
+.PHONY : SocketServer/Client.cpp.o
+
+SocketServer/Client.i: SocketServer/Client.cpp.i
+
+.PHONY : SocketServer/Client.i
+
+# target to preprocess a source file
+SocketServer/Client.cpp.i:
+	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/SocketServer/Client.cpp.i
+.PHONY : SocketServer/Client.cpp.i
+
+SocketServer/Client.s: SocketServer/Client.cpp.s
+
+.PHONY : SocketServer/Client.s
+
+# target to generate assembly for a file
+SocketServer/Client.cpp.s:
+	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/SocketServer/Client.cpp.s
+.PHONY : SocketServer/Client.cpp.s
+
+SocketServer/Server.o: SocketServer/Server.cpp.o
+
+.PHONY : SocketServer/Server.o
+
+# target to build an object file
+SocketServer/Server.cpp.o:
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/SocketServer/Server.cpp.o
+.PHONY : SocketServer/Server.cpp.o
+
+SocketServer/Server.i: SocketServer/Server.cpp.i
+
+.PHONY : SocketServer/Server.i
+
+# target to preprocess a source file
+SocketServer/Server.cpp.i:
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/SocketServer/Server.cpp.i
+.PHONY : SocketServer/Server.cpp.i
+
+SocketServer/Server.s: SocketServer/Server.cpp.s
+
+.PHONY : SocketServer/Server.s
+
+# target to generate assembly for a file
+SocketServer/Server.cpp.s:
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/SocketServer/Server.cpp.s
+.PHONY : SocketServer/Server.cpp.s
+
 grafo/Arista.o: grafo/Arista.cpp.o
 
 .PHONY : grafo/Arista.o
@@ -130,6 +210,7 @@ grafo/Arista.o: grafo/Arista.cpp.o
 # target to build an object file
 grafo/Arista.cpp.o:
 	$(MAKE) -f CMakeFiles/Grafo.dir/build.make CMakeFiles/Grafo.dir/grafo/Arista.cpp.o
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/grafo/Arista.cpp.o
 .PHONY : grafo/Arista.cpp.o
 
 grafo/Arista.i: grafo/Arista.cpp.i
@@ -139,6 +220,7 @@ grafo/Arista.i: grafo/Arista.cpp.i
 # target to preprocess a source file
 grafo/Arista.cpp.i:
 	$(MAKE) -f CMakeFiles/Grafo.dir/build.make CMakeFiles/Grafo.dir/grafo/Arista.cpp.i
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/grafo/Arista.cpp.i
 .PHONY : grafo/Arista.cpp.i
 
 grafo/Arista.s: grafo/Arista.cpp.s
@@ -148,6 +230,7 @@ grafo/Arista.s: grafo/Arista.cpp.s
 # target to generate assembly for a file
 grafo/Arista.cpp.s:
 	$(MAKE) -f CMakeFiles/Grafo.dir/build.make CMakeFiles/Grafo.dir/grafo/Arista.cpp.s
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/grafo/Arista.cpp.s
 .PHONY : grafo/Arista.cpp.s
 
 grafo/Grafo.o: grafo/Grafo.cpp.o
@@ -157,6 +240,7 @@ grafo/Grafo.o: grafo/Grafo.cpp.o
 # target to build an object file
 grafo/Grafo.cpp.o:
 	$(MAKE) -f CMakeFiles/Grafo.dir/build.make CMakeFiles/Grafo.dir/grafo/Grafo.cpp.o
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/grafo/Grafo.cpp.o
 .PHONY : grafo/Grafo.cpp.o
 
 grafo/Grafo.i: grafo/Grafo.cpp.i
@@ -166,6 +250,7 @@ grafo/Grafo.i: grafo/Grafo.cpp.i
 # target to preprocess a source file
 grafo/Grafo.cpp.i:
 	$(MAKE) -f CMakeFiles/Grafo.dir/build.make CMakeFiles/Grafo.dir/grafo/Grafo.cpp.i
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/grafo/Grafo.cpp.i
 .PHONY : grafo/Grafo.cpp.i
 
 grafo/Grafo.s: grafo/Grafo.cpp.s
@@ -175,6 +260,7 @@ grafo/Grafo.s: grafo/Grafo.cpp.s
 # target to generate assembly for a file
 grafo/Grafo.cpp.s:
 	$(MAKE) -f CMakeFiles/Grafo.dir/build.make CMakeFiles/Grafo.dir/grafo/Grafo.cpp.s
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/grafo/Grafo.cpp.s
 .PHONY : grafo/Grafo.cpp.s
 
 grafo/Vertice.o: grafo/Vertice.cpp.o
@@ -184,6 +270,7 @@ grafo/Vertice.o: grafo/Vertice.cpp.o
 # target to build an object file
 grafo/Vertice.cpp.o:
 	$(MAKE) -f CMakeFiles/Grafo.dir/build.make CMakeFiles/Grafo.dir/grafo/Vertice.cpp.o
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/grafo/Vertice.cpp.o
 .PHONY : grafo/Vertice.cpp.o
 
 grafo/Vertice.i: grafo/Vertice.cpp.i
@@ -193,6 +280,7 @@ grafo/Vertice.i: grafo/Vertice.cpp.i
 # target to preprocess a source file
 grafo/Vertice.cpp.i:
 	$(MAKE) -f CMakeFiles/Grafo.dir/build.make CMakeFiles/Grafo.dir/grafo/Vertice.cpp.i
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/grafo/Vertice.cpp.i
 .PHONY : grafo/Vertice.cpp.i
 
 grafo/Vertice.s: grafo/Vertice.cpp.s
@@ -202,6 +290,7 @@ grafo/Vertice.s: grafo/Vertice.cpp.s
 # target to generate assembly for a file
 grafo/Vertice.cpp.s:
 	$(MAKE) -f CMakeFiles/Grafo.dir/build.make CMakeFiles/Grafo.dir/grafo/Vertice.cpp.s
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/grafo/Vertice.cpp.s
 .PHONY : grafo/Vertice.cpp.s
 
 grafo/main.o: grafo/main.cpp.o
@@ -237,9 +326,17 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... Client"
 	@echo "... rebuild_cache"
 	@echo "... Grafo"
 	@echo "... edit_cache"
+	@echo "... Server"
+	@echo "... SocketServer/Client.o"
+	@echo "... SocketServer/Client.i"
+	@echo "... SocketServer/Client.s"
+	@echo "... SocketServer/Server.o"
+	@echo "... SocketServer/Server.i"
+	@echo "... SocketServer/Server.s"
 	@echo "... grafo/Arista.o"
 	@echo "... grafo/Arista.i"
 	@echo "... grafo/Arista.s"
