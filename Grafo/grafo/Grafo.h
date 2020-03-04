@@ -1,6 +1,6 @@
 //
 // Created by haziel on 27/2/20.
-//
+////Codigo referencia tomado de Emmanuel L.G
 
 #ifndef GRAFO_GRAFO_H
 #define GRAFO_GRAFO_H
@@ -14,7 +14,6 @@ class Grafo {
 public:
     Grafo();
     int getSize();
-    void printGrafo();
     void insertArista(Vertice *origen, Vertice *destino, int peso);
     void insertVertice(string ciudad);
     void listaAdyacencia();

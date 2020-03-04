@@ -1,6 +1,6 @@
 //
 // Created by haziel on 27/2/20.
-//
+////Codigo referencia tomado de Emmanuel L.G
 
 #ifndef GRAFO_VERTICE_H
 #define GRAFO_VERTICE_H

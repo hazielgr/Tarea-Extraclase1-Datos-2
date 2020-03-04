@@ -1,6 +1,8 @@
 //
 // Created by haziel on 27/2/20.
 //
+//Codigo referencia tomado de Emmanuel L.G
+
 
 #include "Vertice.h"
 Vertice* Vertice::getSiguiente() {

@@ -1,7 +1,7 @@
 //
 // Created by haziel on 27/2/20.
 //
-
+//Codigo referencia tomado de Emmanuel L.G
 #ifndef GRAFO_ARISTA_H
 #define GRAFO_ARISTA_H
 

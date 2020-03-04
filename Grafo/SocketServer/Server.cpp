@@ -1,16 +1,16 @@
 #include <cstdio>
 #include <cstring>
-#include <sys/types.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <netinet/in.h>
-#include <netinet/ip.h>
 #include <cstdlib>
 #include <unistd.h>
 #include "Server.h"
 #include "../grafo/Grafo.h"
 #include <iostream>
 #include <sstream>
+
+//Codigo referencia tomado de kritika Entertainment
 
 using namespace std;
 list<string> serializador(string str);
@@ -39,6 +39,8 @@ Server::Server() {
         perror("Bindind failure\n");
         exit(0);
     }
+
+    while(true){
     listen(serverdf,5);
 
     int size = sizeof(struct sockaddr);
@@ -46,15 +48,15 @@ Server::Server() {
     char snd[500],rcv[500];
     Grafo *graph;
     string respuesta;
-    while(true){
+
         int clientfd = accept(serverdf, (struct sockaddr*)&client, reinterpret_cast<socklen_t *>(&size));
         if(clientfd == -1 ){
             perror("Accept error\n");
             exit(0);
         }
-        printf("Connection accepted\n");
+        //printf("Connection accepted\n");
 
-        for(;;){
+
             int r = recv(clientfd, rcv, sizeof(rcv),0);
             rcv[r] = '\0';
 
@@ -69,6 +71,7 @@ Server::Server() {
                 respuesta = "Aristas Agregadas Correctamente";
                 strcpy(snd,respuesta.c_str());
                 agregarAristas(rcv,graph);
+                graph->listaAdyacencia();
                 send(clientfd,snd,strlen(snd),0);
             }
             else if(rcv[0]=='3'){
@@ -79,8 +82,9 @@ Server::Server() {
             else if(rcv[0]=='4'){
                 break;
             }
-            sleep(0.01);
-        }
+
+        close(clientfd);
+        sleep(0.1);
     }
 }
 
